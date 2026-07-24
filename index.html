@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Sanjay Saxena — Radiomics, Radiogenomics &amp; AI in Healthcare</title>
+<meta name="description" content="Dr. Sanjay Saxena, Assistant Professor, Computer Science &amp; Engineering, IIIT Vadodara. Research in Data Science, Medical Image Analysis, Radiomics and Radiogenomics in Oncology, and AI in Healthcare.">
+<meta property="og:title" content="Dr. Sanjay Saxena — IIIT Vadodara">
+<meta property="og:description" content="Radiomics, radiogenomics and AI for neuro-oncology. Assistant Professor, IIIT Vadodara.">
+<meta property="og:image" content="sanjay.jpg">
+<meta property="og:type" content="profile">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,500&family=Public+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111820;
+  --paper:#f7f5f0;
+  --panel:#ffffff;
+  --slate:#5a6570;
+  --rule:#d9d4c9;
+  --signal:#1f6f6b;
+  --signal-soft:#e5f0ef;
+  --accent:#b8532f;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Public Sans',system-ui,-apple-system,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:40;background:rgba(247,245,240,.94);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:18px}
+.brand{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.05rem;
+  letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.navlinks{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end}
+.navlinks a{font-family:'IBM Plex Mono',monospace;font-size:.71rem;text-transform:uppercase;
+  letter-spacing:.09em;text-decoration:none;color:var(--slate);
+  padding-bottom:2px;border-bottom:1px solid transparent;transition:.15s}
+.navlinks a:hover,.navlinks a:focus-visible{color:var(--signal);border-color:var(--signal)}
+
+/* hero */
+header{padding:72px 0 60px;border-bottom:1px solid var(--rule)}
+.hero{display:grid;grid-template-columns:1.55fr .95fr;gap:56px;align-items:start}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 20px}
+h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(2.5rem,5.6vw,4.1rem);
+  line-height:1.03;letter-spacing:-.025em;margin:0 0 24px}
+h1 em{font-style:italic;font-weight:500}
+.lede{font-size:1.15rem;max-width:56ch;color:#2b343c;margin:0 0 26px}
+.lede strong{font-weight:600}
+.affil{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--slate);
+  line-height:1.85;border-left:2px solid var(--signal);padding-left:15px;margin-bottom:28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-size:.85rem;font-weight:500;
+  padding:11px 19px;border:1px solid var(--ink);transition:.15s}
+.btn:hover,.btn:focus-visible{background:var(--ink);color:var(--paper)}
+.btn.primary{background:var(--signal);border-color:var(--signal);color:#fff}
+.btn.primary:hover,.btn.primary:focus-visible{background:#17524f;border-color:#17524f}
+.portrait{position:relative}
+.portrait img{width:100%;border:1px solid var(--rule);filter:saturate(.92)}
+.portrait figcaption{font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-top:10px}
+
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  border-bottom:1px solid var(--rule)}
+.metric{padding:24px 26px;border-right:1px solid var(--rule)}
+.metric:last-child{border-right:none}
+.metric .num{font-family:'Fraunces',Georgia,serif;font-size:2rem;font-weight:500;
+  line-height:1;display:block;margin-bottom:6px}
+.metric .lbl{font-family:'IBM Plex Mono',monospace;font-size:.66rem;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--slate)}
+
+/* sections */
+section{padding:68px 0;border-bottom:1px solid var(--rule)}
+h2{font-family:'IBM Plex Mono',monospace;font-size:.74rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--accent);
+  margin:0 0 30px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+h3{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.35rem;
+  letter-spacing:-.01em;margin:0 0 10px;line-height:1.25}
+p{margin:0 0 18px}
+p:last-child{margin-bottom:0}
+.intro{max-width:66ch;margin-bottom:34px;color:#333c44}
+
+.grid{display:grid;gap:30px}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.grid.three{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+
+.card{background:var(--panel);border:1px solid var(--rule);padding:26px}
+.card .tag{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--signal);display:block;margin-bottom:13px}
+.card p{font-size:.95rem;color:#333c44}
+
+/* highlights */
+.hl{border-top:1px solid var(--rule);padding:26px 0;display:grid;
+  grid-template-columns:118px 1fr;gap:28px}
+.hl:first-of-type{border-top:none;padding-top:0}
+.hl .venue{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--slate);
+  line-height:1.7;padding-top:4px}
+.hl .venue b{display:block;color:var(--accent);font-weight:500}
+.hl h3{margin-bottom:8px}
+.hl p{font-size:.95rem;color:#333c44;margin-bottom:12px}
+.hl a.paper{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--signal);text-decoration:none;
+  border-bottom:1px solid #a9cecb;padding-bottom:2px}
+.hl a.paper:hover,.hl a.paper:focus-visible{border-color:var(--signal)}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:160px 1fr;gap:26px;
+  padding:20px 0;border-top:1px solid var(--rule)}
+.tl li:first-child{border-top:none;padding-top:0}
+.tl .when{font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--slate);padding-top:4px}
+.tl .what{margin:0}
+.tl .what strong{display:block;font-family:'Fraunces',Georgia,serif;font-weight:500;
+  font-size:1.1rem;margin-bottom:3px}
+.tl .what span{font-size:.93rem;color:var(--slate)}
+
+/* students */
+.sub{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--slate);margin:34px 0 14px}
+.sub:first-of-type{margin-top:0}
+.stu{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.stu li{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:baseline;
+  padding:13px 0;border-top:1px solid var(--rule)}
+.stu li:first-child{border-top:none}
+.stu .who{font-size:.98rem}
+.stu .who b{font-weight:600}
+.stu .who span{display:block;font-size:.88rem;color:var(--slate);margin-top:2px}
+.status{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.09em;
+  text-transform:uppercase;padding:3px 9px;border:1px solid var(--rule);
+  white-space:nowrap;color:var(--slate)}
+.status.on{color:#134f4c;background:var(--signal-soft);border-color:#c1dbd8}
+.status.sub{color:#7a4520;background:#f7ece6;border-color:#e4cdc1}
+
+/* pills */
+.pills{display:flex;flex-wrap:wrap;gap:9px;margin:0;padding:0;list-style:none}
+.pills li{background:var(--signal-soft);color:#134f4c;border:1px solid #c1dbd8;
+  padding:7px 14px;font-size:.88rem}
+
+/* join box */
+.join{background:var(--ink);color:#f2efe9;padding:40px;border:1px solid var(--ink)}
+.join h3{color:#fff;font-size:1.6rem;margin-bottom:14px}
+.join p{color:#c8cfd6;max-width:62ch;font-size:1rem}
+.join .roles{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 26px;list-style:none;padding:0}
+.join .roles li{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.09em;
+  text-transform:uppercase;border:1px solid #3d4750;color:#a9d6d2;padding:6px 12px}
+.join a.btn{border-color:#fff;color:#fff}
+.join a.btn:hover,.join a.btn:focus-visible{background:#fff;color:var(--ink)}
+
+/* contact */
+.contact-grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.contact-grid .lbl{font-family:'IBM Plex Mono',monospace;font-size:.66rem;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--slate);display:block;margin-bottom:6px}
+.contact-grid a{color:var(--signal);text-decoration:none;border-bottom:1px solid #a9cecb}
+.contact-grid a:hover,.contact-grid a:focus-visible{border-color:var(--signal)}
+.contact-grid p{font-size:.96rem}
+
+footer{padding:32px 0 48px;font-size:.83rem;color:var(--slate)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:38px}
+  .portrait{max-width:320px}
+}
+@media (max-width:620px){
+  header{padding:48px 0 40px}
+  section{padding:48px 0}
+  .tl li,.hl{grid-template-columns:1fr;gap:6px}
+  .metric{border-right:none;border-bottom:1px solid var(--rule)}
+  .join{padding:28px}
+  .stu li{grid-template-columns:1fr;gap:8px}
+  .status{justify-self:start}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Sanjay Saxena</a>
+    <div class="navlinks">
+      <a href="#research">Research</a>
+      <a href="#highlights">Highlights</a>
+      <a href="#background">Background</a>
+      <a href="#students">Students</a>
+      <a href="#join">Join</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow">Assistant Professor · Computer Science &amp; Engineering · IIIT Vadodara</p>
+      <h1>Reading the genome<br>in the <em>image</em>.</h1>
+      <p class="lede">I work at the intersection of <strong>data science, medical image analysis and oncology</strong> — building radiomic and radiogenomic models that link what a tumour looks like on a scan to what it is doing molecularly, so clinicians can characterise a cancer before a needle ever touches it.</p>
+      <div class="affil">
+        Dept. of Computer Science &amp; Engineering<br>
+        Indian Institute of Information Technology Vadodara<br>
+        Gandhinagar Campus, Gujarat, India
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#research">Research areas</a>
+        <a class="btn" href="#join">Open positions</a>
+        <a class="btn" href="https://scholar.google.com/citations?hl=en&user=e5kA4XAAAAAJ&view_op=list_works&sortby=pubdate">Google Scholar</a>
+      </div>
+    </div>
+    <figure class="portrait" style="margin:0">
+      <img src="sanjay.jpg" alt="Portrait of Dr. Sanjay Saxena" width="800" height="999">
+      <figcaption>Dr. Sanjay Saxena<br>Ph.D., IIT (BHU) · Postdoc, UPenn</figcaption>
+    </figure>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="metrics">
+    <div class="metric"><span class="num">25</span><span class="lbl">h-index</span></div>
+    <div class="metric"><span class="num">41</span><span class="lbl">i10-index</span></div>
+    <div class="metric"><span class="num">2,245+</span><span class="lbl">Citations</span></div>
+    <div class="metric"><span class="num">5</span><span class="lbl">Edited books</span></div>
+    <div class="metric"><span class="num">Top 2%</span><span class="lbl">Stanford/Elsevier 2025</span></div>
+  </div>
+</div>
+
+<section id="research">
+  <div class="wrap">
+    <h2>Research</h2>
+    <p class="intro">Cancer care is moving from population averages to individual biology — but the molecular tests that guide treatment are invasive, expensive and vulnerable to sampling bias. My group asks whether imaging, which every patient already receives, can carry that same molecular signal. The answer increasingly is yes, and the work spans four connected areas.</p>
+    <div class="grid two">
+      <div class="card">
+        <span class="tag">Radiomics &amp; radiogenomics in oncology</span>
+        <h3>Imaging as a molecular proxy</h3>
+        <p>Quantifying tumour phenotype from routine MRI and CT, then mapping those signatures onto genotype — IDH mutation, MGMT promoter methylation, 1p/19q co-deletion — to make molecular characterisation non-invasive and repeatable across the treatment course.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Medical image analysis</span>
+        <h3>Methods that hold up in the clinic</h3>
+        <p>Segmentation, harmonisation across scanners and interpretable deep architectures for brain, liver, breast and vascular imaging. The emphasis is generalisation: a model that only works on the cohort it was trained on is not a clinical tool.</p>
+      </div>
+      <div class="card">
+        <span class="tag">AI in healthcare</span>
+        <h3>Federated, generative and clinically usable</h3>
+        <p>Privacy-preserving federated learning so models can learn across hospitals without patient scans ever leaving the institution — plus large language models and digital twins for translational healthcare applications.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Data science</span>
+        <h3>Scale, bias and imaging biomarkers</h3>
+        <p>High-performance and parallel computing for large imaging cohorts, systematic bias evaluation of published AI pipelines, and the statistical work of turning a promising feature into a defensible imaging biomarker.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="highlights">
+  <div class="wrap">
+    <h2>Recent research highlights</h2>
+
+    <article class="hl">
+      <div class="venue"><b>Neuroradiology</b>2026 · Springer</div>
+      <div>
+        <h3>The tumour margin carries the signal</h3>
+        <p>Radiomic analysis usually stops at the visible tumour boundary. Working with multi-parametric MRI from over 500 glioblastoma patients, we extracted roughly 11,000 deep features per patient from tumour and progressively dilated peritumoral regions. Adding a 10&nbsp;mm peritumoral margin lifted MGMT promoter methylation prediction from an AUC of 0.71 to 0.81, and an 8&nbsp;mm margin improved survival prediction — evidence that the apparently normal tissue surrounding a glioblastoma encodes both prognostic and molecular information.</p>
+        <a class="paper" href="https://link.springer.com/article/10.1007/s00234-026-04016-6">Read the paper →</a>
+      </div>
+    </article>
+
+    <article class="hl">
+      <div class="venue"><b>Neuro-Oncology</b>2025 · SNO Annual Meeting</div>
+      <div>
+        <h3>Graphs and texture, working together</h3>
+        <p>IDH-wildtype glioblastoma carries a median survival of 12–18 months, and existing survival models struggle with its spatial heterogeneity. We encoded segmented tumour subregions as graph structures using intra- and inter-slice connectivity, fused them with handcrafted texture descriptors and clinical variables, and validated across a 400-patient discovery cohort and a 128-patient replication cohort — a non-invasive route to survival estimation that respects how the tumour is actually arranged in space.</p>
+        <a class="paper" href="https://www.ovid.com/journals/neuco/abstract/10.1093/neuonc/noaf201.1094~img-15-a-synergistic-ai-framework-using-graph-and-texture">Read the abstract →</a>
+      </div>
+    </article>
+
+    <article class="hl">
+      <div class="venue"><b>J. Medical &amp; Biological Engineering</b>2025 · Springer</div>
+      <div>
+        <h3>RFiLM U-Net: letting radiomics steer the network</h3>
+        <p>Rather than treating radiomic features as an output, we used them as a control signal. A first U-Net segments the liver from abdominal CT; radiomic descriptors extracted from that segmentation then linearly modulate a second network that refines tumour delineation. The two-stage design reached Dice coefficients of 0.92 for liver and 0.87 for tumour under five-fold cross-validation, outperforming the prior state of the art.</p>
+        <a class="paper" href="https://link.springer.com/article/10.1007/s40846-025-00938-3">Read the paper →</a>
+      </div>
+    </article>
+
+    <article class="hl">
+      <div class="venue"><b>Measurement</b>2026 · Elsevier</div>
+      <div>
+        <h3>Attention mechanisms for vascular risk</h3>
+        <p>Extending the same methodological toolkit beyond oncology: attention- and transformer-based architectures for carotid artery segmentation and automated intima-media thickness and plaque area measurement in ultrasound scans — quantitative cardiovascular risk markers extracted from an imaging modality that is cheap, portable and already ubiquitous.</p>
+        <a class="paper" href="https://www.sciencedirect.com/science/article/abs/pii/S0263224126000205">Read the paper →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <h2>Background</h2>
+    <ul class="tl">
+      <li>
+        <span class="when">Aug 2025 — present</span>
+        <p class="what"><strong>IIIT Vadodara</strong>
+        <span>Assistant Professor, Department of Computer Science &amp; Engineering. Member of the institute AI Policy Framing Committee.</span></p>
+      </li>
+      <li>
+        <span class="when">2022 — 2024</span>
+        <p class="what"><strong>University of Pennsylvania, USA — Postdoctoral Research</strong>
+        <span>AI in Biomedical Imaging Laboratory (AIBIL), CBICA, Perelman School of Medicine, with Prof. Christos Davatzikos. Project: machine learning–based disease models.</span></p>
+      </li>
+      <li>
+        <span class="when">2016 — 2025</span>
+        <p class="what"><strong>IIIT Bhubaneswar</strong>
+        <span>Assistant Professor, Computer Science &amp; Engineering. Also served as CEO and Board Member of the RIPITT Foundation and Convenor of the Course Curriculum Development Committee.</span></p>
+      </li>
+      <li>
+        <span class="when">Ph.D. · 2016</span>
+        <p class="what"><strong>Indian Institute of Technology (BHU), Varanasi</strong>
+        <span>Embedding parallelism in image processing techniques using multicore environments, with applications in medical imaging.</span></p>
+      </li>
+      <li>
+        <span class="when">M.Tech · 2011</span>
+        <p class="what"><strong>IIT (BHU) — School of Biomedical Engineering</strong>
+        <span>Master of Technology, Biomedical Engineering.</span></p>
+      </li>
+    </ul>
+
+    <div style="margin-top:42px" class="grid three">
+      <div class="card">
+        <span class="tag">Clinical collaboration</span>
+        <p>Sustained joint work with AIIMS New Delhi, NIMHANS Bengaluru and Taipei Medical University, keeping method development anchored to real diagnostic questions and curated neuro-oncology cohorts.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Books &amp; intellectual property</span>
+        <p>Five edited volumes with Elsevier, Taylor &amp; Francis and IGI Global — including the two-volume <em>Radiomics and Radiogenomics in Neuro-Oncology</em> — and a German patent on a COVID-19 treatment recommender system.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Editorial &amp; peer review</span>
+        <p>Guest Editor for <em>Diagnostics</em>. Reviewer for IEEE Transactions on Medical Imaging, Scientific Reports, Computers in Biology and Medicine, Biomedical Signal Processing &amp; Control and Brain Informatics.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:42px">
+      <p class="sub">Teaching</p>
+      <ul class="pills">
+        <li>Artificial Intelligence</li>
+        <li>Distributed &amp; Parallel Computing</li>
+        <li>Data Analytics &amp; Computing</li>
+        <li>Data Science for AI in Healthcare</li>
+        <li>Digital Image Processing</li>
+        <li>Data Structures</li>
+        <li>Scientific Computing with Python</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="students">
+  <div class="wrap">
+    <h2>Research students</h2>
+    <p class="intro">Supervision spans quantum machine learning, federated healthcare systems and the full radiogenomics pipeline for glioblastoma. Several of the papers above began as a student thesis.</p>
+
+    <p class="sub">Doctoral</p>
+    <ul class="stu">
+      <li><span class="who"><b>Ms. Kirti Nayak</b><span>Quantum machine learning in medical image analysis</span></span><span class="status on">Ongoing · 2026</span></li>
+      <li><span class="who"><b>Mr. Raghvendra Singh</b><span>Biomedical image analysis and processing</span></span><span class="status on">Ongoing · 2026</span></li>
+      <li><span class="who"><b>Mr. Soumya Ranjan Panda</b><span>Federated learning based applications in healthcare</span></span><span class="status sub">Submitted · 2026</span></li>
+      <li><span class="who"><b>Dr. Suchismita Das</b><span>Deep learning for brain tumour segmentation and survival prediction from multi-parametric MRI</span></span><span class="status">Awarded · 2023</span></li>
+      <li><span class="who"><b>Dr. Biswajit Jena</b><span>Machine and deep learning approaches for biomedical image segmentation and analysis</span></span><span class="status">Awarded · 2022</span></li>
+    </ul>
+
+    <p class="sub">Master's</p>
+    <ul class="stu">
+      <li><span class="who"><b>Nihar Patel</b><span>Brain digital twin</span></span><span class="status on">Ongoing · 2025–26</span></li>
+      <li><span class="who"><b>Nikunj Gajipara</b><span>Role of large language models in healthcare</span></span><span class="status on">Ongoing · 2025–26</span></li>
+      <li><span class="who"><b>Shivani Prasad</b><span>Age, gender, radiomics and tumour-location analysis of glioblastoma clinical outcomes</span></span><span class="status">Awarded · 2024–25</span></li>
+      <li><span class="who"><b>Dev Deveswar Rana</b><span>Radiomic signatures and histopathological correlations in glioblastoma recurrence and pseudoprogression</span></span><span class="status">Awarded · 2024–25</span></li>
+      <li><span class="who"><b>Priyanka Singh</b><span>RAGA-NET: a novel network for overall survival estimation in GBM patients</span></span><span class="status">Awarded · 2023–24</span></li>
+      <li><span class="who"><b>Moirangthem Gelson Singh</b><span>Overall survival and MGMT estimation using a parallel deep learning framework and MRI</span></span><span class="status">Awarded · 2022–23</span></li>
+      <li><span class="who"><b>Sarthak Padhi</b><span>Breast cancer detection</span></span><span class="status">Awarded · 2018–19</span></li>
+      <li><span class="who"><b>Nitu Kumari</b><span>Brain tumour segmentation in FLAIR MRI using sliding-window texture features and fuzzy C-means clustering</span></span><span class="status">Awarded · 2017–18</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap">
+    <div class="join">
+      <h3>Looking for highly motivated Ph.D. students and research interns</h3>
+      <p>If you want to work where machine learning meets real clinical data — segmentation, radiogenomics, federated learning, quantum ML for imaging, or LLMs in healthcare — I would like to hear from you. Strong programming ability matters more than a prior background in medicine; the clinical understanding can be built here, alongside our collaborators at AIIMS and NIMHANS.</p>
+      <ul class="roles">
+        <li>Ph.D. positions</li>
+        <li>Research interns</li>
+        <li>M.Tech projects</li>
+      </ul>
+      <p style="color:#8f9aa4;font-size:.92rem;margin-bottom:22px">When you write, include a short note on what you have actually built, which of the research areas above interests you and why, and your CV.</p>
+      <a class="btn" href="mailto:sanjay_saxena@iiitvadodara.ac.in?subject=Prospective%20student%20enquiry">Write to me</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div>
+        <span class="lbl">Email</span>
+        <p><a href="mailto:sanjay_saxena@iiitvadodara.ac.in">sanjay_saxena@iiitvadodara.ac.in</a></p>
+      </div>
+      <div>
+        <span class="lbl">Office</span>
+        <p>Cabin 9105/1, Dept. of CSE<br>IIIT Vadodara, Gandhinagar Campus<br>Gujarat, India</p>
+      </div>
+      <div>
+        <span class="lbl">Profiles</span>
+        <p><a href="https://scholar.google.com/citations?hl=en&user=e5kA4XAAAAAJ&view_op=list_works&sortby=pubdate">Google Scholar</a><br>
+        <a href="#">ORCID</a> · <a href="#">LinkedIn</a></p>
+      </div>
+      <div>
+        <span class="lbl">Professional membership</span>
+        <p>IEEE · Indian Academy of Neuroscience · IAENG</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Sanjay Saxena · Department of Computer Science &amp; Engineering, IIIT Vadodara</div>
+</footer>
+
+</body>
+</html>
